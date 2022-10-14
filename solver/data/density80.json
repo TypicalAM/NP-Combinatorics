@@ -1,0 +1,323 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": [],
+  "nodes": [
+    {
+      "id": 0
+    },
+    {
+      "id": 1
+    },
+    {
+      "id": 2
+    },
+    {
+      "id": 3
+    },
+    {
+      "id": 4
+    },
+    {
+      "id": 5
+    },
+    {
+      "id": 6
+    },
+    {
+      "id": 7
+    },
+    {
+      "id": 8
+    },
+    {
+      "id": 9
+    }
+  ],
+  "adjacency": [
+    [
+      {
+        "weight": 32,
+        "id": 1
+      },
+      {
+        "weight": 28,
+        "id": 4
+      },
+      {
+        "weight": 50,
+        "id": 5
+      },
+      {
+        "weight": 37,
+        "id": 6
+      },
+      {
+        "weight": 28,
+        "id": 7
+      },
+      {
+        "weight": 28,
+        "id": 9
+      }
+    ],
+    [
+      {
+        "weight": 32,
+        "id": 0
+      },
+      {
+        "weight": 43,
+        "id": 3
+      },
+      {
+        "weight": 29,
+        "id": 5
+      },
+      {
+        "weight": 23,
+        "id": 6
+      },
+      {
+        "weight": 23,
+        "id": 7
+      },
+      {
+        "weight": 39,
+        "id": 8
+      },
+      {
+        "weight": 48,
+        "id": 9
+      }
+    ],
+    [
+      {
+        "weight": 39,
+        "id": 3
+      },
+      {
+        "weight": 28,
+        "id": 4
+      },
+      {
+        "weight": 48,
+        "id": 5
+      },
+      {
+        "weight": 40,
+        "id": 6
+      },
+      {
+        "weight": 30,
+        "id": 9
+      }
+    ],
+    [
+      {
+        "weight": 43,
+        "id": 1
+      },
+      {
+        "weight": 39,
+        "id": 2
+      },
+      {
+        "weight": 44,
+        "id": 4
+      },
+      {
+        "weight": 30,
+        "id": 5
+      },
+      {
+        "weight": 46,
+        "id": 6
+      },
+      {
+        "weight": 28,
+        "id": 8
+      },
+      {
+        "weight": 27,
+        "id": 9
+      }
+    ],
+    [
+      {
+        "weight": 28,
+        "id": 0
+      },
+      {
+        "weight": 28,
+        "id": 2
+      },
+      {
+        "weight": 44,
+        "id": 3
+      },
+      {
+        "weight": 41,
+        "id": 5
+      },
+      {
+        "weight": 42,
+        "id": 7
+      },
+      {
+        "weight": 37,
+        "id": 8
+      }
+    ],
+    [
+      {
+        "weight": 50,
+        "id": 0
+      },
+      {
+        "weight": 29,
+        "id": 1
+      },
+      {
+        "weight": 48,
+        "id": 2
+      },
+      {
+        "weight": 30,
+        "id": 3
+      },
+      {
+        "weight": 41,
+        "id": 4
+      },
+      {
+        "weight": 23,
+        "id": 6
+      },
+      {
+        "weight": 50,
+        "id": 7
+      }
+    ],
+    [
+      {
+        "weight": 37,
+        "id": 0
+      },
+      {
+        "weight": 23,
+        "id": 1
+      },
+      {
+        "weight": 40,
+        "id": 2
+      },
+      {
+        "weight": 46,
+        "id": 3
+      },
+      {
+        "weight": 23,
+        "id": 5
+      },
+      {
+        "weight": 40,
+        "id": 7
+      },
+      {
+        "weight": 41,
+        "id": 8
+      },
+      {
+        "weight": 43,
+        "id": 9
+      }
+    ],
+    [
+      {
+        "weight": 28,
+        "id": 0
+      },
+      {
+        "weight": 23,
+        "id": 1
+      },
+      {
+        "weight": 42,
+        "id": 4
+      },
+      {
+        "weight": 50,
+        "id": 5
+      },
+      {
+        "weight": 40,
+        "id": 6
+      },
+      {
+        "weight": 24,
+        "id": 8
+      },
+      {
+        "weight": 31,
+        "id": 9
+      }
+    ],
+    [
+      {
+        "weight": 39,
+        "id": 1
+      },
+      {
+        "weight": 28,
+        "id": 3
+      },
+      {
+        "weight": 37,
+        "id": 4
+      },
+      {
+        "weight": 41,
+        "id": 6
+      },
+      {
+        "weight": 24,
+        "id": 7
+      },
+      {
+        "weight": 47,
+        "id": 9
+      }
+    ],
+    [
+      {
+        "weight": 28,
+        "id": 0
+      },
+      {
+        "weight": 48,
+        "id": 1
+      },
+      {
+        "weight": 30,
+        "id": 2
+      },
+      {
+        "weight": 27,
+        "id": 3
+      },
+      {
+        "weight": 43,
+        "id": 6
+      },
+      {
+        "weight": 31,
+        "id": 7
+      },
+      {
+        "weight": 47,
+        "id": 8
+      }
+    ]
+  ]
+}
