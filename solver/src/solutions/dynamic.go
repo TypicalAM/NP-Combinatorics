@@ -6,4 +6,4 @@ import (
 )
 
 // Solve the problem using the dynamic method
-func Dynamic(logger *log.Logger, graph g.Graph) int { return 0 }
+func dynamic(logger *log.Logger, graph g.Graph) int { return 0 }

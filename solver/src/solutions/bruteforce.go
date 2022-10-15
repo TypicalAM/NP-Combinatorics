@@ -33,7 +33,7 @@ func permute(arr []int) [][]int {
 }
 
 // Solve the problem using the bruteforce method
-func BruteForce(logger *log.Logger, graph g.Graph) int {
+func bruteforce(logger *log.Logger, graph g.Graph) int {
 	defer timetrack.TimeTrack(logger, time.Now(), "Bruteforce solution")
 	logger.Info("Running the bruteforce solution")
 
@@ -50,7 +50,7 @@ func BruteForce(logger *log.Logger, graph g.Graph) int {
 	min := math.MaxInt
 	minIndex := 0
 
-	logger.Infof("Generated %d permutations",len(graph.Distances)*len(permutations))
+	logger.Infof("Generated %d permutations", len(graph.Distances)*len(permutations))
 
 	// Find the minimum distance permutation
 	for permIndex, permutation := range permutations {
@@ -73,7 +73,6 @@ func BruteForce(logger *log.Logger, graph g.Graph) int {
 		}
 	}
 
-	logger.Info("The best distance is", min)
 	logger.Infof("The best route is %v with 0 as the starting city", permutations[minIndex])
 
 	return min

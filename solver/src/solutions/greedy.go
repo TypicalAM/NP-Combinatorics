@@ -10,7 +10,7 @@ import (
 )
 
 // Solve the problem using the greedy method
-func Greedy(logger *log.Logger, graph g.Graph) int {
+func greedy(logger *log.Logger, graph g.Graph) int {
 	defer timetrack.TimeTrack(logger, time.Now(), "Greedy solution")
 	logger.Info("Running the greedy solution")
 
@@ -39,8 +39,6 @@ func Greedy(logger *log.Logger, graph g.Graph) int {
 	}
 
 	total += graph.Distances[len(graph.Distances)-1][0]
-
-	logger.Info("The best distance is", total)
 
 	return total
 }

@@ -3,6 +3,7 @@ package input
 import (
 	"encoding/json"
 	"errors"
+	"fmt"
 	"os"
 
 	g "github.com/TypicalAM/NP-Combinatorics/src/graph"
@@ -12,6 +13,7 @@ import (
 func LoadData(filepath string) (g.Graph, error) {
 	file, err := os.ReadFile(filepath)
 	if err != nil {
+		fmt.Print(err)
 		return g.Graph{}, errors.New("couldn't load the file")
 	}
 
