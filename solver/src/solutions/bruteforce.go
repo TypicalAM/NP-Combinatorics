@@ -46,19 +46,20 @@ func BruteForce(logger *log.Logger, graph g.Graph) int {
 	logger.Infof("Generating permutations")
 
 	// Generate all the possible permutations of the vertex set
-	permutations := permute(vertices)
+	permutations := permute(vertices[1:])
 	min := math.MaxInt
 	minIndex := 0
 
-	logger.Infof("Generated %d permutations",len(permutations))
+	logger.Infof("Generated %d permutations",len(graph.Distances)*len(permutations))
 
 	// Find the minimum distance permutation
 	for permIndex, permutation := range permutations {
 		var total int
-		// Add the first and the last element
-		first := permutation[len(graph.Distances)-1]
-		last := permutation[0]
-		total += graph.Distances[first][last]
+		// Add the distance between 0 and the last element
+		total += graph.Distances[0][permutation[len(graph.Distances)-2]]
+
+		// Add the distance between 0 and the first element
+		total += graph.Distances[0][permutation[0]]
 
 		// Add subsequent elements of the slice
 		for ind := 0; ind < len(permutation)-1; ind++ {
@@ -73,7 +74,7 @@ func BruteForce(logger *log.Logger, graph g.Graph) int {
 	}
 
 	logger.Info("The best distance is", min)
-	logger.Info("The best conf is", permutations[minIndex])
+	logger.Infof("The best route is %v with 0 as the starting city", permutations[minIndex])
 
 	return min
 }
