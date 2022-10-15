@@ -5,5 +5,5 @@ import (
 	g "github.com/TypicalAM/NP-Combinatorics/src/graph"
 )
 
-// Solve the problem using the accurate method
-func Accurate(logger *log.Logger, graph g.Graph) int { return 0 }
+// Solve the problem using the dynamic method
+func Dynamic(logger *log.Logger, graph g.Graph) int { return 0 }

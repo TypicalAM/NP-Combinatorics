@@ -22,4 +22,17 @@ type GraphData struct {
 }
 
 // Convert the GraphData struct into a proper representation
-func (gdata GraphData) convertToRepresentation() g.Graph { return g.Graph{} }
+func (gdata GraphData) convertToRepresentation() g.Graph {
+	matrix := make([][]int, len(gdata.Nodes))
+	for i := range matrix {
+		matrix[i] = make([]int, len(gdata.Nodes))
+	}
+
+	for from, vertexAdj := range gdata.Adjacency {
+		for _, edge := range vertexAdj {
+			matrix[from][edge.ID] = edge.Weight
+		}
+	}
+
+	return g.Graph{Distances: matrix}
+}
