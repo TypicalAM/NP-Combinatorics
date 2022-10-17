@@ -86,21 +86,21 @@ def parse_cmdline() -> argparse.Namespace:
         type=int,
         default=10,
         choices=range(1, MAX_SIZE),
-        help=f"""Generate a graph of size n up to {MAX_SIZE} with a default of 10""",
+        help=f"""Generate a graph of size n up to {MAX_SIZE} (default is 10)""",
         metavar="size",
     )
     parser.add_argument(
         "--path",
         default=DEFAULT_PATH,
-        help=f"""State the path where the output should be saved, the default is {DEFAULT_PATH}""",
+        help=f"""State the path where the output should be saved (default is {DEFAULT_PATH})""",
         metavar="path",
     )
     parser.add_argument(
         "--density",
         type=int,
-        default=50,
+        default=100,
         choices=range(1, 101),
-        help="""Change the density of the graph to n (default is 50)""",
+        help="""Change the density of the graph to n (default is 100)""",
         metavar="density",
     )
     parser.add_argument(
