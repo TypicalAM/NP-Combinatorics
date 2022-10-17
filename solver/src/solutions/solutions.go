@@ -30,8 +30,8 @@ func RunSolutions(logger *log.Logger, appSettings settings.Settings, data g.Grap
 		logger.Info("Best path using bruteforce:", bruteforce(logger, data))
 	}
 
-	if appSettings.UseDynamic {
-		logger.Info("Best path using dynamic:", dynamic(logger, data))
+	if appSettings.UseBacktracking {
+		logger.Info("Best path using backtracking:", backtracking(logger, data))
 	}
 
 	if appSettings.UseGreedy {

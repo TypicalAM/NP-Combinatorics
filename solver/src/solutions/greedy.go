@@ -12,7 +12,7 @@ import (
 // Solve the problem using the greedy method
 func greedy(logger *log.Logger, graph g.Graph) int {
 	defer timetrack.TimeTrack(logger, time.Now(), "Greedy solution")
-	logger.Info("Running the greedy solution")
+	logger.Info("---- Running the greedy solution ----")
 
 	var total, minIndex, vertex int
 
