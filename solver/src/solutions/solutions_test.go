@@ -24,7 +24,9 @@ type testcase struct {
 // Generate the testcases
 func genTestcases(isSmall bool) testinfo {
 	var verticesNum, expectedResult []int
+
 	var testFiles []string
+
 	if isSmall {
 		verticesNum = []int{8, 9, 10, 11}
 		expectedResult = []int{455, 425, 412, 366}
@@ -44,9 +46,9 @@ func genTestcases(isSmall bool) testinfo {
 			"../../data/test/100_test.json",
 		}
 	}
+
 	tester := testinfo{}
 	tester.logger = log.New(os.Stdout).Quiet()
-
 	tester.testcases = make([]testcase, len(testFiles))
 
 	for ind, path := range testFiles {
