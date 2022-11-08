@@ -22,8 +22,21 @@ func showGraph(logger *log.Logger, data g.Graph) {
 
 // Run the selected solutions
 func RunSolutions(logger *log.Logger, appSettings settings.Settings, data g.Graph) {
+	var greedyResult int
+
 	if appSettings.ShowGraph {
 		showGraph(logger, data)
+	}
+
+	if appSettings.UseGreedy {
+		if appSettings.Parralel {
+			greedyResult = greedyParralel(logger, data)
+			logger.Info("Best path using parallel greedy:", greedyResult)
+		} else {
+			greedyResult = greedySequential(logger, data)
+			logger.Warn("The backtracking data may not be as accurate when not using the parallel option")
+			logger.Info("Best path using sequential greedy:", greedyResult)
+		}
 	}
 
 	if appSettings.UseBruteforce {
@@ -31,10 +44,7 @@ func RunSolutions(logger *log.Logger, appSettings settings.Settings, data g.Grap
 	}
 
 	if appSettings.UseBacktracking {
-		logger.Info("Best path using backtracking:", backtracking(logger, data))
+		logger.Info("Best path using backtracking:", backtracking(logger, data, greedyResult))
 	}
 
-	if appSettings.UseGreedy {
-		logger.Info("Best path using greedy:", greedy(logger, data))
-	}
 }

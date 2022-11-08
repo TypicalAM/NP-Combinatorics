@@ -9,6 +9,7 @@ import (
 // A struct to hold the app settings
 type Settings struct {
 	Destination     string
+	Parralel        bool
 	ShowGraph       bool
 	UseBruteforce   bool
 	UseGreedy       bool
@@ -20,12 +21,14 @@ func GetSettingsFromCmdArgs() (Settings, error) {
 	solvPtr := flag.String("solvers", "bruteforce,backtracking,greedy", "Choose the solvers for the presented problem, delimited by commas")
 	destPtr := flag.String("load", "data/example.json", "Select the destination of the source file of the graph")
 	showPtr := flag.Bool("show", false, "Show the imported graph before computing solutions")
+	parrPtr := flag.Bool("parralel", true, "Use parralel processing for the greedy solution")
 
 	flag.Parse()
 
 	settings := Settings{}
 	settings.Destination = *destPtr
 	settings.ShowGraph = *showPtr
+	settings.Parralel = *parrPtr
 
 	for _, solver := range strings.Split(*solvPtr, ",") {
 		switch solver {

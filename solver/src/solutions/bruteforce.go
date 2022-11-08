@@ -7,6 +7,7 @@ import (
 	"github.com/Mandala/go-log"
 	g "github.com/TypicalAM/NP-Combinatorics/src/graph"
 	"github.com/TypicalAM/NP-Combinatorics/src/timetrack"
+	"gonum.org/v1/gonum/stat/combin"
 )
 
 // Generate permutations of a slice of ints, returns all possible combinations of the elements in the slice
@@ -37,23 +38,18 @@ func bruteforce(logger *log.Logger, graph g.Graph) int {
 	defer timetrack.TimeTrack(logger, time.Now(), "Bruteforce solution")
 	logger.Info("---- Running the bruteforce solution ----")
 
-	// Get a slice of all the vertices
-	vertices := make([]int, len(graph.Distances))
-	for i := range graph.Distances {
-		vertices[i] = i
-	}
-
 	logger.Infof("Generating permutations")
 
-	// Generate all the possible permutations of the vertex set
-	permutations := permute(vertices)
+	// Create the permutation generator instance
+	vertices := len(graph.Distances)
+	permGenerator := combin.NewPermutationGenerator(vertices, vertices)
 	min := math.MaxInt
-	minIndex := 0
 
-	logger.Infof("Generated %d permutations", len(permutations))
+	logger.Infof("Generated the permutation object")
 
 	// Find the minimum distance permutation
-	for permIndex, permutation := range permutations {
+	for permGenerator.Next() {
+		permutation := permGenerator.Permutation(nil)
 		var total int
 		// Add the distance between the first element and the last element of the permutation
 		total += graph.Distances[permutation[0]][permutation[len(graph.Distances)-1]]
@@ -66,11 +62,8 @@ func bruteforce(logger *log.Logger, graph g.Graph) int {
 		// Make it the new minimum if it is the best distance
 		if total < min {
 			min = total
-			minIndex = permIndex
 		}
 	}
-
-	logger.Info("The best route is", permutations[minIndex])
 
 	return min
 }

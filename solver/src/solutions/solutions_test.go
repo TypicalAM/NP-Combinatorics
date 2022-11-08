@@ -89,7 +89,7 @@ func TestBacktracking(t *testing.T) {
 	for _, tt := range tester.testcases {
 		testname := fmt.Sprintf("%dv,%d", tt.vertices, tt.want)
 		t.Run(testname, func(t *testing.T) {
-			ans := backtracking(tester.logger, tt.graph)
+			ans := backtracking(tester.logger, tt.graph, 0)
 			if ans != tt.want {
 				t.Errorf("got %d, want %d", ans, tt.want)
 			}
@@ -104,7 +104,7 @@ func TestGreedy(t *testing.T) {
 	for _, tt := range tester.testcases {
 		testname := fmt.Sprintf("%dv,%d", tt.vertices, tt.want)
 		t.Run(testname, func(t *testing.T) {
-			ans := greedy(tester.logger, tt.graph)
+			ans := greedySequential(tester.logger, tt.graph)
 			if ans != tt.want {
 				t.Errorf("got %d, want %d", ans, tt.want)
 			}

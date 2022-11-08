@@ -20,6 +20,11 @@ func min(x, y int) int {
 
 // A recursive helper function for the backtracking method
 func helper(graph g.Graph, visited *[]bool, currentPosition, size, count, dist int, ans *int) {
+	// If the distance is bigger than the known answer we bail out
+	if dist > *ans {
+		return
+	}
+
 	// If the path is full (no new distinct values can be added) check if it is the smallest answer
 	if count == size && graph.Distances[currentPosition][0] != 0 {
 		*ans = min(*ans, dist+graph.Distances[currentPosition][0])
@@ -41,7 +46,7 @@ func helper(graph g.Graph, visited *[]bool, currentPosition, size, count, dist i
 }
 
 // Solve the problem using the backtracking method
-func backtracking(logger *log.Logger, graph g.Graph) int {
+func backtracking(logger *log.Logger, graph g.Graph, minimal int) int {
 	defer timetrack.TimeTrack(logger, time.Now(), "Backtracking solution")
 	logger.Info("---- Running the backtracking solution ----")
 
@@ -50,7 +55,14 @@ func backtracking(logger *log.Logger, graph g.Graph) int {
 	visited[0] = true
 
 	// Initialize the result and pass it onto the helper function to mutate it
-	result := math.MaxInt
+	var result int
+
+	if minimal == 0 {
+		result = math.MaxInt
+	} else {
+		result = minimal
+	}
+
 	helper(graph, &visited, 0, len(graph.Distances), 1, 0, &result)
 
 	return result
