@@ -10,29 +10,6 @@ import (
 	"gonum.org/v1/gonum/stat/combin"
 )
 
-// Generate permutations of a slice of ints, returns all possible combinations of the elements in the slice
-func permute(arr []int) [][]int {
-	var helper func([]int, int)
-
-	result := [][]int{}
-
-	helper = func(arr []int, n int) {
-		if n == 1 {
-			tmp := make([]int, len(arr))
-			copy(tmp, arr)
-			result = append(result, tmp)
-		} else {
-			for i := 0; i < n; i++ {
-				helper(arr, n-1)
-				arr[0], arr[n-1] = arr[n-1], arr[0]
-			}
-		}
-	}
-	helper(arr, len(arr))
-
-	return result
-}
-
 // Solve the problem using the bruteforce method
 func bruteforce(logger *log.Logger, graph g.Graph) int {
 	defer timetrack.TimeTrack(logger, time.Now(), "Bruteforce solution")
@@ -43,13 +20,14 @@ func bruteforce(logger *log.Logger, graph g.Graph) int {
 	// Create the permutation generator instance
 	vertices := len(graph.Distances)
 	permGenerator := combin.NewPermutationGenerator(vertices, vertices)
+	permutation := make([]int, vertices)
 	min := math.MaxInt
 
 	logger.Infof("Generated the permutation object")
 
 	// Find the minimum distance permutation
 	for permGenerator.Next() {
-		permutation := permGenerator.Permutation(nil)
+		permGenerator.Permutation(permutation)
 		var total int
 		// Add the distance between the first element and the last element of the permutation
 		total += graph.Distances[permutation[0]][permutation[len(graph.Distances)-1]]
